@@ -1,0 +1,43 @@
+// Arquivo: src/main.c
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+// Estrutura para representar uma carta
+typedef struct {
+    char nome[50];
+    int ataque;
+    int defesa;
+    int velocidade;
+    int poder;
+} Carta;
+
+// Função para criar uma carta
+Carta criarCarta(const char *nome, int ataque, int defesa, int velocidade, int poder) {
+    Carta c;
+    snprintf(c.nome, sizeof(c.nome), "%s", nome);
+    c.ataque = ataque;
+    c.defesa = defesa;
+    c.velocidade = velocidade;
+    c.poder = poder;
+    return c;
+}
+
+// Função principal
+int main() {
+    srand(time(NULL)); // Inicializa o gerador de números aleatórios
+
+    // Exemplo de cartas (pode expandir)
+    Carta cartas[5] = {
+        criarCarta("Herói", 80, 70, 60, 90),
+        criarCarta("Vilão", 90, 60, 50, 80),
+        criarCarta("Robô", 70, 90, 40, 70),
+        criarCarta("Dragão", 95, 50, 70, 85),
+        criarCarta("Super Trunfo", 100, 100, 100, 100)
+    };
+
+    printf("Bem-vindo ao Super Trunfo!\n");
+    // Lógica do jogo aqui (sorteio de cartas, comparações, etc.)
+
+    return 0;
+}
